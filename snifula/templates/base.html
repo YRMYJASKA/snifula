@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>{% block title %}{% endblock %} - snifula.com</title>
+		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Abhaya+Libre' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Hind+Siliguri' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="{% static "snifula/style.css"%}">
+		{%block head%}
+		
+		{% endblock %}
+	</head>
+
+	<body>
+	
+	<header>
+		{% if user.is_authenticated %}
+		<p><a href="{% url 'profile' username=user.username %}">{{ user.username }}</a> | <a href = "{%url 'logout' %}">logout</a></p>
+		{% else %}
+		<p><a href="{% url 'login' %}">Login</a> | <a href = "{%url 'register' %}">Register</a></p>
+		{% endif %}
+
+		{% block header %}
+		{% endblock %}
+	</header>
+
+	<main>
+			<div id="content">
+			{% block content %}
+
+			{% endblock %}
+			</div>
+	</main>
+
+	<footer>
+		<p>Snifula.com &copy; 2018</p>
+	</footer>
+	</body>
+</html>

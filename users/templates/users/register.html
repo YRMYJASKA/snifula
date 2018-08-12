@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "users/forms.css"%}">
+{% endblock %}
+
+{% block content %}
+	<h2>Register</h2>
+	{% if form.errors %}
+		<p class="errortext">Invalid credientals! Please check again!</p>
+	{% endif %}
+
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Register</button>
+	</form>
+{% endblock %}

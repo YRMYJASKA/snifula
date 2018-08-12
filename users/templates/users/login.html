@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "users/forms.css"%}">
+{% endblock%} 
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+	<h2>Login</h2>
+	{% if form.errors %}
+	<p class="errortext">Invalid credientals!</p>
+	{% endif %}
+<form class="login" action="/users/login/" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Login">
+</form>
+
+{% endblock %}
