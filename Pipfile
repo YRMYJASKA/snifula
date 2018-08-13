@@ -12,6 +12,7 @@ django-vote = "*"
 dj-database-url = "*"
 django-simple-captcha = "*"
 pillow = "*"
+captcha = "*"
 
 [dev-packages]
 
