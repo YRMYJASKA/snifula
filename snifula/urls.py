@@ -27,5 +27,6 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('about/', views.aboutView, name='about'),
     path('forum/', include('forum.urls')),
+    path('captcha/', include('captcha.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
