@@ -9,6 +9,7 @@ django-heroku = "*"
 whitenoise = "*"
 pipfile = "*"
 django-vote = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
