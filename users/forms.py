@@ -1,10 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from captcha import CaptchaField
+
 from .import models
 
 
 class AccountForm(UserChangeForm):
     """Custom Form to modify accounts"""
+    captcha = CaptchaField()
 
     class Meta:
         model = models.Account
@@ -12,6 +15,7 @@ class AccountForm(UserChangeForm):
 
 
 class RegistrationForm(UserCreationForm):
+    captcha = CaptchaField()
 
     class Meta(UserCreationForm.Meta):
         model = models.Account
@@ -20,4 +24,3 @@ class RegistrationForm(UserCreationForm):
             'username': 'max. 64 characters. (a-Z1-9_+-.)',
             'password2': None,
         }
-
