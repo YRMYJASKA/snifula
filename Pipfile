@@ -10,6 +10,7 @@ whitenoise = "*"
 pipfile = "*"
 django-vote = "*"
 dj-database-url = "*"
+django-simple-captcha = "*"
 
 [dev-packages]
 
