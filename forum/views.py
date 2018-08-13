@@ -5,7 +5,6 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
-
 import logging
 
 import json
@@ -42,4 +41,10 @@ class createPost(generic.CreateView):
 
 
 def viewIndex(request):
-    return render(request, 'forum/index.html', {'posts': models.UserPost.objects.all().order_by('-date_published')})
+    keyword = request.GET.get('search', '')
+    info = ''
+    if keyword != '':
+        info = "Seach results for: " + keyword
+    posts = models.UserPost.objects.filter(
+        title__contains=keyword).order_by('-date_published')
+    return render(request, 'forum/index.html', {'posts': posts, 'searchinfo': info})

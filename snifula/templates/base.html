@@ -21,13 +21,16 @@
 		{% else %}
 		<p><a href="{% url 'login' %}">Login</a> | <a href = "{%url 'register' %}">Register</a></p>
 		{% endif %}
-
+		<form action="{% url 'forumindex' %}" method="GET">
+			<input name="search" type=search id="search">
+			<button type="submit">search</button>
+		</form>
 		{% block header %}
 		{% endblock %}
 	</header>
 
 	<main>	
-		<a href="/" style="text-decoration: none; font-size: 50px;"><h1 >snifula.com</h1></a>
+		<a href="/" style="text-decoration: none; font-size: 50px;"><h1>snifula.com</h1></a>
 			{% block main%}
 			{% endblock %}
 			<div id="content">
