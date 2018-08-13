@@ -11,6 +11,7 @@ pipfile = "*"
 django-vote = "*"
 dj-database-url = "*"
 django-simple-captcha = "*"
+pillow = "*"
 
 [dev-packages]
 
