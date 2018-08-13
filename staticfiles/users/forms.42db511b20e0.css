@@ -1,0 +1,11 @@
+#content {
+	width:400px;
+	margin: 0 auto;
+}
+.errortext, .errorlist{
+	color: red;
+	font-size: 11px;
+}
+form ul {
+	list-style-type: none;
+}
