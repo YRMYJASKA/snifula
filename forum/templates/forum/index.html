@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}Forum{% endblock %}
+
+{% block head %}
+<script type="text/javascript">
+	$('.votes_u').click(function(){
+
+		var postid = $(this).attr("data-postid");
+		$.ajax({
+			type: 'POST',
+			url: '/forum/upvote',
+			data: {'postid': postid, 'csrftoken': '{{ csrf_token }}'},
+			success: function(data){
+				console.log(data)
+			}
+		});
+
+	});
+</script>
+{% endblock %}
+{% block content%}
+
+{% for post in posts %}
+	<!--
+			<button class="votes_u" data-postid="{{ post.id }}" id="u_{{ post.id }}"><img src="{% static 'forum/arrow_up_neutral.png' %}"></button>
+			{{ post.votes.count }}
+			<button class="votes_d" data-postid="{{ post.id }}" id="d_{{ post.id }}"><img src="{% static 'forum/arrow_down_neutral.png' %}"></button>
+	--!>
+			<p><a href="{%url 'viewpost' pk=post.id %}">{{post.title}}</a>, {{ post.date_published }}</p>
+{% endfor %}
+
+{% endblock %}
+

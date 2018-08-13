@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+
+{% block title %}Create Post{% endblock %}
+{% block content%}
+	<h2>Submit a post</h2>
+	{% if form.errors %}
+	<p class="errortext">Creation of post failed</p>
+	{% endif %}
+
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">submit</button>
+	</form>
+{% endblock %}
+

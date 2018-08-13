@@ -17,8 +17,9 @@
 	{% endif %}
 <form class="login" action="/users/login/" method="post">
 	{% csrf_token %}
+	<input type="hidden" name="next" value='{{ next }}'>
 	{{ form.as_p }}
-	<input type="submit" value="Login">
+	<input type="submit" value="login">
 </form>
 
 {% endblock %}

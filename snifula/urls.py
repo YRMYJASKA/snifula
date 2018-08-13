@@ -24,6 +24,7 @@ urlpatterns = [
     path('', TemplateView.as_view(
         template_name='snifula/index.html'), name='index'),
     path('users/', include('users.urls')),
+    path('forum/', include('forum.urls')),
     path('admin/', admin.site.urls),
 ]
 

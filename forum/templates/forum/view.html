@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content%}
+<p class="helptext"><a href="/forum">Back</a></p>
+<h2 id="title">{{ post.title }}</h2>
+<p id="author" class="information">By <a href="{% url 'profile' username=post.author.username %}" style="text-decoration: none;">{{ post.author.username }}</a></p>
+<p id="date" class="information">{{ post.date_published }}</p>
+<p id="content">{{ post.content }}</p>
+<hr>
+<table id="comments" >
+{% for comment in post.usercomment_set.all %}
+	<tr>
+	<th class="commentinfo">
+		<p class="helptext" style="display: table-cell;">
+		<a href="{% url 'profile' username=comment.author.username%}">{{ comment.author }}</a>
+		{{ comment.date_published }}
+		</p>
+	</th>
+	<th>
+		<p style="text-align: left;"> {{ comment.content }}</p>	
+	</th>
+	</tr>
+{% endfor %}
+</table>
+{% if user.is_authenticated %}
+<form class="comment" action="{% url 'viewpost' pk=post.id %}" method="POST">
+	{% csrf_token %}
+	{{ commentform.as_p }}
+	<input type="submit" value="comment"></input>
+</form>
+{% else %}
+<p class="helptext">Please <a href="{% url 'login'%}?next={{request.path}}">login</a> to post comments</p>
+{% endif%}
+{% endblock %}
+

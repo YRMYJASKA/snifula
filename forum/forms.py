@@ -8,11 +8,18 @@ class AddUserPostForm(forms.ModelForm):
 
     class Meta:
         model = models.UserPost
-        fields = ('title', 'content', 'author',)
+        fields = ('title', 'content')
+        labels = {
+                'title': 'Title',
+                'content': '',
+                }
 
 
 class UserCommentForm(forms.ModelForm):
 
     class Meta:
         model = models.UserComment
-        fields = ('author', 'content', )
+        fields = ('content', )
+        labels = {
+            'content': '',
+        }

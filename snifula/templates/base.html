@@ -7,6 +7,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Abhaya+Libre' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Hind+Siliguri' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="{% static "snifula/style.css"%}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 		{%block head%}
 		
 		{% endblock %}
@@ -16,7 +17,7 @@
 	
 	<header>
 		{% if user.is_authenticated %}
-		<p><a href="{% url 'profile' username=user.username %}">{{ user.username }}</a> | <a href = "{%url 'logout' %}">logout</a></p>
+		<p><a href={% url 'createpost' %}>post</a> | <a href="{% url 'profile' username=user.username %}">{{ user.username }}</a> | <a href = "{%url 'logout' %}">logout</a></p>
 		{% else %}
 		<p><a href="{% url 'login' %}">Login</a> | <a href = "{%url 'register' %}">Register</a></p>
 		{% endif %}
@@ -25,7 +26,10 @@
 		{% endblock %}
 	</header>
 
-	<main>
+	<main>	
+		<a href="/" style="text-decoration: none; font-size: 50px;"><h1 >snifula.com</h1></a>
+			{% block main%}
+			{% endblock %}
 			<div id="content">
 			{% block content %}
 
