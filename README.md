@@ -1,5 +1,5 @@
 # snifula
-Code for snifula.com ()
+Code for snifula.com 
 
 # About
 Snifula was made as an experimental project and is still in heavy development.
