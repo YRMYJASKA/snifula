@@ -59,3 +59,10 @@ button {
 th button {
 	display: block;
 }
+.highlight {
+	color:  #5f4361;
+}
+.posttext {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}

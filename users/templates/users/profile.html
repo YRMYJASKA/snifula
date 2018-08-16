@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
 {% block content %}
-{{ user.username }}
+<h1>{{ user.username }}</h1>
+<p>Member since {{ user.date_joined }}</p>
+<p>Number of posts: <b>{{ user.userpost_set.count }}</b></p>
+<p>Number of comments: <b>{{ user.usercomment_set.count }}</b></p>
+<hr>
 {% endblock %}

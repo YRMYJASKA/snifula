@@ -27,7 +27,7 @@
 			{{ post.votes.count }}
 			<button class="votes_d" data-postid="{{ post.id }}" id="d_{{ post.id }}"><img src="{% static 'forum/arrow_down_neutral.png' %}"></button>
 	--!>
-			<p><a href="{%url 'viewpost' pk=post.id %}">{{post.title}}</a>, {{ post.date_published }}</p>
+	<p class="posttext"><a href="{%url 'viewpost' pk=post.id %}">{{post.title}}</a>, {{ post.date_published }} <span class="helptext">by <a href="{% url 'profile' username=post.author%}">{{post.author}}</a></span></p>
 {% endfor %}
 
 {% endblock %}
